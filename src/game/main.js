@@ -20,15 +20,17 @@ let gameConfig = {
             },
         },
     },
-    scene: [
-        playGame
-    ]
 };
 
-const StartGame = (parent) => {
+const StartGame = (parent, settings) => {
     let config = { ...gameConfig, parent };
     config.scale.parent = parent;
-    return new Phaser.Game(config);
+
+    console.log(config);
+    let game = new Phaser.Game(config);
+
+    game.scene.add("PlayGame", playGame, true, settings["PlayGame"]);
+    return game;
 };
 
 export default StartGame;
