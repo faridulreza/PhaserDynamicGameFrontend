@@ -11,6 +11,7 @@
 
 ## Run
 
+start the backend from [PhaserDynamicGameBackend](https://github.com/faridulreza/PhaserDynamicGameBackend)
 
 rename the `.env example` to `.env` . make sure  the server url is correct.
 
