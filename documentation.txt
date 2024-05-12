@@ -1,0 +1,38 @@
+
+=> Started the process by looking into https://github.com/phaserjs/template-react
+
+=> Choose this as the base project to start with.
+
+=> Searched for flappy bird game repo with phaserjs
+
+=> Found a lot of examples.
+
+=> Studied one repo with well structured code https://github.com/raychenfj/phaser-flappy-bird and the PhaserJS starter
+    guide
+
+=> Found out most of the examples are not using PhaserJS v3
+
+=> Searched for Flappy bird with Phaser v3
+
+=> Found one basic example here-
+    https://www.emanueleferonato.com/2019/05/02/flappy-bird-html5-prototype-updated-to-phaser-3-16-2/
+
+=> Added the flappy bird game to the boilerplate game.
+
+=> figured out way to dynamically add resouces
+
+
+## Backend
+
+=> Had experience with openAI's APIs beforehand
+   Thus built the backend with some prompt engineering.
+   There are two endpoint in the backend:
+   
+   1. /generate_description
+   	uses the user's un-structured environment description as input and generate detailed
+   	description for the components of the game (bird, obstacle & background) using gpt-3.5-turbo
+   	model
+   
+     /generate_image
+     	using the detailed image description, this endpoint generates an image,
+     	resizes the image accoding to the api parameters , removes the background to make image 		transpaent , then returns a publicly accessible image link.
