@@ -3,8 +3,9 @@ import { useRef, useState } from "react";
 import Phaser from "phaser";
 import { PhaserGame } from "./game/PhaserGame";
 import { EventBus } from "./game/EventBus";
+import ChangeHandler from "./ChangeHandler";
 
-const init_settings = {
+const init_resources = {
     PlayGame: {
         files: [
             {
@@ -29,7 +30,7 @@ const init_settings = {
 function App() {
     //  References to the PhaserGame component (game and scene are exposed)
     const phaserRef = useRef();
-    const [settings, setSettings] = useState(init_settings);
+    const [resources, setResources] = useState(init_resources);
 
     // Event emitted from the PhaserGame component
     const currentScene = (scene) => {};
@@ -39,40 +40,10 @@ function App() {
             <PhaserGame
                 ref={phaserRef}
                 currentActiveScene={currentScene}
-                settings={settings}
+                settings={resources}
             />
 
-            <button
-                onClick={() => {
-                    setSettings(p=>{
-                        return{
-                            ...p,
-                            PlayGame: {
-                                files: [
-                                    {
-                                        type: "image",
-                                        key: "bg",
-                                        url: "http://localhost:8080/assets/bg.png",
-                                    },
-                                    {
-                                        type: "image",
-                                        key: "bird",
-                                        url: "http://localhost:8080/assets/star.png",
-                                    },
-                                    {
-                                        type: "image",
-                                        key: "pipe",
-                                        url: "http://localhost:8080/assets/pipe.png",
-                                    },
-                                 
-                                ],
-                            },
-                        }
-                    })
-                }}
-            >
-                change
-            </button>
+            <ChangeHandler setResources={setResources} pahser={phaserRef} />
         </div>
     );
 }
